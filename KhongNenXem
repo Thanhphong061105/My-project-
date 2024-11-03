@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main() {
+	int sotien = 1000;
+	int datcuoc;
+	int sode;
+	int soduocchon;
+	
+	srand(static_cast<unsigned>(time(0)));
+	
+	
+	while(sotien > 0) {
+		do {
+			cout << "nhap so tien dat cuoc: ";
+			cin >> datcuoc;
+		}
+		while(datcuoc < 0 || datcuoc > sotien);
+		
+		do {
+			cout << "hay nhap so ban chon: ";
+			cin >> soduocchon;
+		} 
+		while(soduocchon < 0 || soduocchon > 9);
+		
+		sode = rand() % 10;
+		
+		cout << "so de hom nay ve la: " << sode << endl;
+		
+		if(sode == soduocchon){
+			sotien = sotien + datcuoc * 7;
+			cout << "chuc ban da trung thuong, so tien hien tai cua ban la: "<< sotien << endl;	
+		}else {
+			sotien = sotien - datcuoc;
+			cout << "chuc ban may man lan sau, so tien con lai la: " << sotien << endl;
+		}
+	}
+	
+	cout << "dung bao gio dinh vao co bac, nhung neu choi hay kiem den toi, thankiu:))" << endl;
+}
